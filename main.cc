@@ -1,6 +1,7 @@
 #include "fileio.h"
 #include <cstdio>
 
+
 int main(){
     FileIO fio;
     if(fio.Open("main.cc",FILE_READ)){

@@ -86,7 +86,7 @@ int FileIO::GetFileSize()
     return 0;
 }
 
-long int FileIO::seek(long int offset,int whence)
+long int FileIO::Seek(long int offset,int whence)
 {
     int whence_cur = 0;
     if(FILE_SEEK_SET){
@@ -98,6 +98,16 @@ long int FileIO::seek(long int offset,int whence)
     }
     long int offset_t = 0;
     offset_t = lseek(m_fileptr,offset,whence_cur);
+    if(offset_t == -1){
+        return -1;
+    }
+    return offset_t;
+}
+
+long int FileIO::SeekTell()
+{
+    long int offset_t = 0;
+    offset_t = lseek(m_fileptr,0,SEEK_CUR);
     if(offset_t == -1){
         return -1;
     }

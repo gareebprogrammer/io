@@ -24,7 +24,8 @@ public:
     int Write(void *buffer,std::size_t bytes_to_write);
     int sync();
     int GetFileSize();
-    long int seek(long int offset,int whence);
+    long int Seek(long int offset,int whence);
+    long int SeekTell();
     int Close();
 };
 
